@@ -1,0 +1,15 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".actions").submit();
+  });
+</script>
+<body>
+  <%= form_for(@bus_stop, url: bus_stops_new_path, :html => {:class => "actions"}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.hidden_field :stopName, value: params[:stopName] %>
+  <%= f.hidden_field :stopNo, value: params[:stopNo] %>
+  <% end %>
+</body>

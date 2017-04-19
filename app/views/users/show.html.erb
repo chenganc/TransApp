@@ -1,0 +1,91 @@
+<body class="background-black">
+<% if logged_in? %>
+  <div class="row">
+      <div class="posts panel panel-primary">
+        <div class="panel-heading">
+          <h3>Profile<h3>
+        </div>
+        
+        <div class="panel-body">
+          <div class="avatar"><%= link_to gravatar_for(@user, size: 80), @user %>
+            <h3 class="profile-info"> Username: <%=@user.username%></h3> 
+            <h3 class="profile-info"> Email: <%=@user.email%></h3>  
+          </div>
+          
+          <%= link_to "Edit Profile",  edit_user_path(current_user) %>
+          
+          <% if current_user.admin? %>
+            /
+            <%= link_to "Edit Users", "/users#edit" %>  
+          <% end %>           
+        </div>
+      </div>
+      
+      <div class="posts panel panel-primary">
+        <div class="panel-heading">
+          <h3>Your Posts</h3>
+        </div>
+        <div class="panel-body">
+          <% if @user.microposts.any? %>
+            <% @user.microposts.reverse.each do |micropost|%>
+              <div class="row">
+
+              <span id="post">
+                <aside class="col-md-4">
+                  <h3 class="micropost-content">
+                    <%= link_to micropost.content, micropost %><br>
+                  </h3>
+
+                  <div class="btn-group">
+                    <%= link_to like_micropost_path(micropost), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    Like
+                    <%= micropost.get_upvotes.size %>
+
+                    <% end %>
+                    <%= link_to dislike_micropost_path(micropost), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-down">
+                    Dislike
+                    <%= micropost.get_downvotes.size %>
+
+                    <% end %>
+
+                    <% if ((current_user.admin?)||(current_user == @user)) %>
+                      <%= link_to 'Delete', micropost, method: :delete,class: "btn btn-default btn-sm", data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+
+                 </div>
+                  <button-comments class="btn-default btn btn-sm addComments" id="replybutton" onclick="toggleComment(this)">Comments (<%= micropost.comments.count %>)</button-comments>
+                  <div id="comment-box">
+                  <%= render :partial => micropost.comments %>
+                  <%= simple_form_for [ micropost, Comment.new]  do |f| %>
+                    <div class="field">
+                      <br>
+                      <%= f.text_area :body, class: "form-control" %>
+                    </div>
+                    <br>
+                  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+                  <br>
+                  <br>
+
+                  <% end %>
+                  </div>
+                <aside>
+              </span>
+              </div>
+              Submitted: <%= time_ago_in_words(micropost.created_at) %> by <%= micropost.user.username %>
+
+              <br>
+              <br>
+              <br>
+              <br>
+            <% end %>
+          <% end %>
+
+
+
+        </div>
+      </div>
+    </div>
+<% end %>
+</body>

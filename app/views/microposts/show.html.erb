@@ -1,0 +1,59 @@
+<body class="background-black">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+    <h1>Post</h1>
+    </div>
+    <div class="panel-body">
+
+        <div class="cen">
+
+          <div class="row">
+            <br>
+            <div class="container" style="margin-left:-150px">
+              <div style="position:absolute; display: inline; margin-left:10px; margin-left:-200px;"><%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %></div>
+              <div style="position:relative; left: 100px; bottom: 35px;"><p><strong><%= @micropost.content %></strong><p></div>
+            </div>
+            <div>Submitted: <%= time_ago_in_words(@micropost.created_at) %> by <%= @micropost.user.username %></div>
+
+            <div class="btn-group">
+              <%= link_to like_micropost_path(@micropost), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-chevron-up"></span>
+              Like
+              <%= @micropost.get_upvotes.size %>
+
+              <% end %>
+              <%= link_to dislike_micropost_path(@micropost), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-chevron-down">
+              Dislike
+              <%= @micropost.get_downvotes.size %>
+
+              <% end %>
+
+              <% if (current_user.admin?)||(@micropost.user == current_user) %>
+                <%= link_to 'Edit', edit_micropost_path(@micropost), class: "btn btn-default btn-sm" %>
+                <%= link_to 'Delete', @micropost, method: :delete, class: "btn btn-default btn-sm", data: { confirm: 'Are you sure?' } %>
+              <% end %>
+
+            </div>
+          </div>
+          </div>
+          <br>
+          <h3> Comments </h3>
+          <div id="comments" class="posts">
+            <%= render :partial => @micropost.comments %>
+          </div>
+          <%= simple_form_for [ @micropost, Comment.new]  do |f| %>
+            <div class="field">
+              <br>
+              <%= f.text_area :body, class: "form-control" %>
+            </div>
+            <br>
+          <%= f.submit "Add Comment", class: "btn btn-primary" %>
+          <br>
+          <br>
+          <% end %>
+
+
+    </div>
+  </div>
+</body>

@@ -1,0 +1,33 @@
+<%= div_for(comment) do %>
+	<div class="comments_wrapper clearfix">
+		<br>
+		<br>
+		<div class="pull-left">
+			<div class="comment-view">
+				<div class="center">
+					<%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+				</div>
+
+				<div class="lead"><%= comment.body %></div>
+
+				<div class="col-md-12">
+					<br>
+					<p style="margin-top:0"><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.username %></small></p>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<div class="btn-group pull-right">
+			<% if (comment.user == current_user )||(current_user.admin) -%>
+				<%= link_to 'Edit', comment, method: :update, class: "btn btn-sm btn-default" %>
+				<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+			<% end %>
+		</div>
+	</div>
+
+<% end %>
+<hr class="divider"></hr>

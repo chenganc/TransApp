@@ -1,0 +1,38 @@
+<body class="background-black">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <% provide(:title, 'Sign up') %>
+        <h1>Sign up</h1>
+      </div>
+      <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="panel-body">
+              <br>
+              <br>
+              <%=  simple_form_for(@user, url: signup_path) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+
+                <%= f.label :username %>
+                <%= f.text_field :username, class: 'form-control' %>
+
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
+
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+
+                <%= f.label :password_confirmation, "Confirmation" %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+                <%= f.submit "Create my account", class: "btn btn-primary" %>
+              <% end %>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>

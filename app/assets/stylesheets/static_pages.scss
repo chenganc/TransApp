@@ -1,0 +1,20 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.background-image{  
+    background: url('/cityscape.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: compact;  
+}
+
+.jumbotron{
+    height: 200px;
+    opacity: 0.4;
+    top: 50px;  
+}
+
+.title-text{
+    position: relative;
+    bottom: 150px;
+ }

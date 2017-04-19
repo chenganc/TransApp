@@ -1,0 +1,32 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.bus-stop-subheader{
+    font-size: 140%;
+    font-weight: bold;
+}
+
+#nextBus{
+	padding-left:0em;
+	margin-left:0em;
+}
+
+#noBus{
+	padding-left:0em;
+	margin-left:0em;
+}
+
+.safety-ratings-header{
+	margin-left:0.6em;
+	color: white;
+}
+
+.safety-ratings-paragraph{
+	margin-left:0em;
+	font-size: 1.2em;
+}
+
+#micropost-form{
+	margin-left:1em;
+	margin-right:1em;
+}

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<ul class="bus_stops">
+<h1>Stops</h1>
+  <tbody>
+    <%= will_paginate %>
+      <% @bus_stops.each do |bus_stop| %>
+        <li>
+          <%= link_to bus_stop.stopNo, bus_stop %>
+          <%= link_to bus_stop.stopName, bus_stop %>
+        </li>
+      <% end %>
+    <%= will_paginate %>
+  </tbody>
+</ul>

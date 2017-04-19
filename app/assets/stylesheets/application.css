@@ -1,0 +1,146 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require jquery.minicolors
+*/
+/* put toggle bars on the left :: not using button */
+
+/*mobile*/
+@media (max-width: 1199px){
+    #page-content{ 
+        position: absolute;
+        left: 0px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    
+    .stop-name{
+        font-size: 180%;
+    }
+    
+    .profile-info{
+        font-size: 120%;
+    }
+    
+}
+
+/*desktop*/
+@media (min-width: 1200px){
+    #page-content{ 
+        left: auto;
+        margin-left: auto;   
+    }
+    
+
+}
+
+.divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+#menu{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 250%;
+    text-decoration: none;
+    background-color: Transparent;
+    outline: none;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#menu-title{
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 250%;
+    text-decoration: none;
+    background-color: Transparent;
+    outline: none;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px; 
+}
+
+.nav-header{
+        font-size: 120%;
+        color:lightblue;
+        font-style: bold;
+    }
+
+.nav-glyphicon, .nav-item{
+    color:#FFFFFF;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline;
+}
+
+
+
+#closeMenu{
+    text-decoration: none;
+    color: white;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#slidemenu{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+}
+
+.micropost-content{
+    text-align: left;
+    font-size: 100%;
+}
+
+.citations h2{
+text-align:left;
+}
+
+.citations ul{
+    margin-left:-1.5em;
+}
+
+.background-black{
+    background-color: #333333;
+}
+
+.transapp-title{
+    color: white;
+}
+
+

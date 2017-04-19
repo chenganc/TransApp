@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="cen">
+    <p id="notice"><%= notice %></p>
+
+
+    <p>
+      <strong>Content:</strong>
+      <%= @comment.body %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @comment.user.username %>
+    </p>
+
+    <%= link_to 'Edit', edit_comment_path(@comment) %> |
+    <%= link_to 'Back', micropost_path %>
+  </div>
+</div>

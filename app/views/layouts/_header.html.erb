@@ -1,0 +1,50 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+    
+    <div class="container navbar-header">
+        <span id="menu" onclick="openNav()">
+           &#9776;
+        </span>
+    </div>
+    
+    <div id="menu-title">
+          TransApp
+    </div>
+    
+    <div id="slidemenu">  
+      <ul class="nav">
+        <li class="nav-header">TransApp</li>
+        <hr class="divider"></hr>
+        <li><%= link_to root_path, data: { turbolinks: false } do %><span class="glyphicon glyphicon-home nav-glyphicon"></span><div class="nav-item"> Home</div><%end%></li>
+        
+        <% if logged_in? %>
+        <li><%= link_to currentbuses_path, data: { turbolinks: false } do %><span class="glyphicon glyphicon-road nav-glyphicon"></span><div class="nav-item"> Active Buses</div><%end%></li>
+        <% end %>
+        
+        <li><%= link_to help_path do %><span class="glyphicon glyphicon-question-sign nav-glyphicon"></span><div class="nav-item"> Help</div><%end%></li>      
+
+        <li><%= link_to about_path do %><span class="glyphicon glyphicon-info-sign nav-glyphicon"></span><div class="nav-item"> About</div><%end%></li>  
+
+        <% if !logged_in? %>
+        <hr class="divider"></hr>
+        <% end %>
+        
+        <% if logged_in? %>
+        <br>
+        <li class="nav-header">Account</li>
+        <hr class="divider"></hr>
+        <li><%= link_to current_user do%><span class="glyphicon glyphicon-user nav-glyphicon"></span><div class="nav-item"> Profile</div><%end%></li>
+        <li><%= link_to edit_user_path(current_user) do%><span class="glyphicon glyphicon-cog nav-glyphicon"></span><div class="nav-item"> Edit profile</div><%end%></li>
+        <% if current_user.admin? %>
+        <li><%= link_to "/users#edit" do%><span class="glyphicon glyphicon-pencil nav-glyphicon"></span><div class="nav-item"> Edit Users</div><%end%></li>
+        <% end %>
+        <hr class="divider"></hr>
+        <li><%= link_to logout_path, method: "delete" do%><span class="glyphicon glyphicon-log-out nav-glyphicon"></span><div class="nav-item"> Log out</div><%end%></li>
+        
+        <% else %>
+           <li><%= link_to login_path do  %><span class="glyphicon glyphicon-log-in nav-glyphicon"></span><div class="nav-item"> Log in</div><%end%></li>
+        <% end %>
+ 
+        <li><a href="javascript:void(0)" id="closeMenu" onclick="closeNav()"><span class="glyphicon glyphicon-arrow-left nav-glyphicon"></span> Close Menu</a></li>
+      </ul>
+    </div>    
+</div>

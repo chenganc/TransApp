@@ -1,0 +1,39 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/*desktop*/
+@media (min-width: 1200px){
+    .lead{
+        position: relative;
+        left: 55px;
+        bottom: 50px;
+        width: 500px;
+        word-wrap: break-word;
+        font-size:100%;
+        margin-bottom:5px;
+        margin-top:5px;
+        -webkit-columns: 300px 2;
+        -moz-columns: 300px 2;
+        columns: 300px 2;
+    }
+}
+
+/*mobile*/
+@media (max-width: 1199px){
+    .lead{
+        position: relative;
+        left: 55px;
+        bottom: 50px;
+        width: 300px;
+        word-wrap: break-word;
+        font-size:100%;
+        margin-bottom:5px;
+        margin-top:5px;
+        -webkit-columns: 300px 2;
+        -moz-columns: 300px 2;
+        columns: 300px 2;
+    }
+}
